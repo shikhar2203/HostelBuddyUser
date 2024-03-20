@@ -14,6 +14,7 @@
 		E310A1582BA9C7D500BF87E9 /* ComplainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310A1572BA9C7D500BF87E9 /* ComplainView.swift */; };
 		E310A15A2BA9C7F900BF87E9 /* HarassmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310A1592BA9C7F900BF87E9 /* HarassmentView.swift */; };
 		E310A15C2BA9C81700BF87E9 /* RoomCleaningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310A15B2BA9C81700BF87E9 /* RoomCleaningView.swift */; };
+		E310A15E2BAA047E00BF87E9 /* MessIssueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310A15D2BAA047E00BF87E9 /* MessIssueView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		E310A1572BA9C7D500BF87E9 /* ComplainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplainView.swift; sourceTree = "<group>"; };
 		E310A1592BA9C7F900BF87E9 /* HarassmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarassmentView.swift; sourceTree = "<group>"; };
 		E310A15B2BA9C81700BF87E9 /* RoomCleaningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCleaningView.swift; sourceTree = "<group>"; };
+		E310A15D2BAA047E00BF87E9 /* MessIssueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessIssueView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				E310A1572BA9C7D500BF87E9 /* ComplainView.swift */,
 				E310A1592BA9C7F900BF87E9 /* HarassmentView.swift */,
 				E310A15B2BA9C81700BF87E9 /* RoomCleaningView.swift */,
+				E310A15D2BAA047E00BF87E9 /* MessIssueView.swift */,
 			);
 			path = HostelBuddyUser;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			files = (
 				E310A15A2BA9C7F900BF87E9 /* HarassmentView.swift in Sources */,
 				E310A15C2BA9C81700BF87E9 /* RoomCleaningView.swift in Sources */,
+				E310A15E2BAA047E00BF87E9 /* MessIssueView.swift in Sources */,
 				E310A1582BA9C7D500BF87E9 /* ComplainView.swift in Sources */,
 				E310A14C2BA9C36A00BF87E9 /* ContentView.swift in Sources */,
 				E310A14A2BA9C36A00BF87E9 /* HostelBuddyUserApp.swift in Sources */,

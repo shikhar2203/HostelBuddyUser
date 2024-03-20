@@ -9,28 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack(spacing: 50) {
-            Button("Submit a Complain") {
-                    
-            }
-            
-            Button("Report for Room Cleaning") {
+        NavigationView {
+            VStack(spacing: 50) {
                 
-            }
-            
-            Button("Report Harrasment") {
+                NavigationLink("Report for Room Cleaning", destination: RoomCleaningView())
                 
+                NavigationLink("Submit a Complain", destination: ComplainView())
+                
+                NavigationLink("Report Harrasment", destination: HarassmentView())
+                
+                NavigationLink("Report Mess Issue", destination: MessIssueView())
+
+    //            Spacer()
+    //            
+    //            Divider()
+    //            HStack {
+    //                Text("Buy us a Coffee")
+    //                Image(systemName: "coffee")
+    //            }
             }
-         
-            
-            
-//            Spacer()
-//            
-//            Divider()
-//            HStack {
-//                Text("Buy us a Coffee")
-//                Image(systemName: "coffee")
-//            }
         }
     }
 }
