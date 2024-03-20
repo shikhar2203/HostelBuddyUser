@@ -33,9 +33,14 @@ struct OTPverifyComplaintViewModel {
             
             guard let decoded = data else { return }
             let decoder = JSONDecoder()
-            let decodedData = try! decoder.decode([String: String].self, from: decoded)
-
-            print(decodedData)
+            do {
+                let decodedData = try decoder.decode(OTPComplaintModel.self, from: decoded)
+                print(decodedData)
+            }
+            catch{
+                print(error.localizedDescription)
+            }
+            
         }
         .resume()
     }

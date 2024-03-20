@@ -133,6 +133,11 @@ struct RoomCleaningView: View {
             Spacer()
             
             Button("Submit") {
+//                otpView.toggle()
+                let date = datePicked.formatted(date: .numeric, time: .shortened).split(separator: ", ").map(String.init)
+                
+                RoomCleaningViewModel.getRoomCleaningOTP(complaintbody: RoomCleaningUserModel(name: name, regNo: regNo, roomNo: roomNo, mailVIT: mailVIT, selectedBlock: selectedBlock, date: date[0], time: date[1]))
+                
                 otpView.toggle()
             }
             
@@ -140,9 +145,10 @@ struct RoomCleaningView: View {
             
         }
         .navigationTitle("Room Cleaning")
-//        .fullScreenCover(isPresented: $otpView, content: {
-//            OTPEnterView(numberOfFields: 6)
-//        })
+        .fullScreenCover(isPresented: $otpView, content: {
+            let date2 = datePicked.formatted(date: .numeric, time: .shortened).split(separator: ", ").map(String.init)
+            OTPRoomCleaningView(numberOfFields: 6, complaintbody: RoomCleaningUserModel(name: name, regNo: regNo, roomNo: roomNo, mailVIT: mailVIT, selectedBlock: selectedBlock, date: date2[0], time: date2[1]))
+        })
         
     }
 }

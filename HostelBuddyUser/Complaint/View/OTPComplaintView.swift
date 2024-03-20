@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct OTPEnterView: View {
+struct OTPComplaintView: View {
     
     var complaintbody: ComplaintUserModel
     let numberOfFields: Int

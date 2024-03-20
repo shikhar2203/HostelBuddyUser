@@ -12,11 +12,11 @@ struct ComplaintViewModel {
     
     static let submitComplaint = "https://hostelbuddybackend-hgf5.onrender.com/api/postComplaint"
         
-    static func getOTP(complaintbody: ComplaintUserModel){
+    static func getComplaintOTP(complaintbody: ComplaintUserModel){
         var urlRequest = URLRequest(url: URL(string: submitComplaint)!)
         urlRequest.httpMethod = "POST"
             
-        var dict = ["name": complaintbody.name, "regNo": complaintbody.regNo, "roomNo": complaintbody.roomNo, "mailVIT": complaintbody.mailVIT, "selectedBlock": complaintbody.selectedBlock, "issueType": complaintbody.issueType, "description": complaintbody.description]
+        let dict = ["name": complaintbody.name, "regNo": complaintbody.regNo, "roomNo": complaintbody.roomNo, "mailVIT": complaintbody.mailVIT, "selectedBlock": complaintbody.selectedBlock, "issueType": complaintbody.issueType, "description": complaintbody.description]
         do {
             
             let requestBody = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
