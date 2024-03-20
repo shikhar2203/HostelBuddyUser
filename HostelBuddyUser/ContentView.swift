@@ -19,14 +19,6 @@ struct ContentView: View {
                 NavigationLink("Report Harrasment", destination: HarassmentView())
                 
                 NavigationLink("Report Mess Issue", destination: MessIssueView())
-
-    //            Spacer()
-    //            
-    //            Divider()
-    //            HStack {
-    //                Text("Buy us a Coffee")
-    //                Image(systemName: "coffee")
-    //            }
             }
         }
     }

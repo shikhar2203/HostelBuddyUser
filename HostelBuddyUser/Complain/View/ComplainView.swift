@@ -16,6 +16,7 @@ struct ComplainView: View {
     @State private var selectedBlock = "MH-A"
     @State private var issueType = "Washroom"
     @State private var description = ""
+    @State private var otpView = false
 
     let block = ["MH-A", "MH-B", "MH-C", "MH-D", "MH-E", "MH-F", "MH-G", "MH-H", "MH-J", "MH-K", "MH-L", "MH-M", "MH-N", "MH-P", "MH-Q", "MH-R", "MH-S", "MH-T"]
     let issue = ["Washroom", "Room", "other"]
@@ -74,6 +75,7 @@ struct ComplainView: View {
                         
                     }
                     .padding()
+                    .autocapitalization(.none)
                     .frame(width: UIScreen.main.bounds.width - 90, height: 50)
                     .overlay {
                         RoundedRectangle(cornerRadius: 10)
@@ -153,13 +155,16 @@ struct ComplainView: View {
             Spacer()
             
             Button("Submit") {
-                
+                otpView.toggle()
             }
             
             Spacer()
             
         }
         .navigationTitle("Submit a Complain")
+        .fullScreenCover(isPresented: $otpView, content: {
+            OTPEnterView(numberOfFields: 6)
+        })
         
     }
 }

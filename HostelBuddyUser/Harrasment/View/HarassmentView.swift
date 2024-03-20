@@ -12,6 +12,7 @@ struct HarassmentView: View {
     @State private var regNo = ""
     @State private var mailVIT = ""
     @State private var description = ""
+    @State private var otpView = false
 
     var body: some View {
         
@@ -68,6 +69,7 @@ struct HarassmentView: View {
                         
                     }
                     .padding()
+                    .autocapitalization(.none)
                     .frame(width: UIScreen.main.bounds.width - 90, height: 50)
                     .overlay {
                         RoundedRectangle(cornerRadius: 10)
@@ -105,6 +107,9 @@ struct HarassmentView: View {
             
         }
         .navigationTitle("Report Harassment")
+        .fullScreenCover(isPresented: $otpView, content: {
+            OTPEnterView(numberOfFields: 6)
+        })
         
     }
 }

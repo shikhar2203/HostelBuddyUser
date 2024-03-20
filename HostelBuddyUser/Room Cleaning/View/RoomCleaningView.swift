@@ -1,5 +1,5 @@
 //
-//  MessIssueView.swift
+//  RoomCleaningView.swift
 //  HostelBuddyUser
 //
 //  Created by shikhar on 19/03/24.
@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct MessIssueView: View {
+struct RoomCleaningView: View {
     @State private var name = ""
     @State private var regNo = ""
-    @State private var messType = ""
+    @State private var roomNo = ""
     @State private var mailVIT = ""
-    @State private var messBlock = ""
-    @State private var description = ""
+    @State private var selectedBlock = "MH-A"
+    @State private var datePicked = Date()
+    @State private var otpView = false
 
-    let messblocklist = ["Veg Mess", "Non-Veg Mess", "Special Mess"]
-    
+    let block = ["MH-A", "MH-B", "MH-C", "MH-D", "MH-E", "MH-F", "MH-G", "MH-H", "MH-J", "MH-K", "MH-L", "MH-M", "MH-N", "MH-P", "MH-Q", "MH-R", "MH-S", "MH-T"]
     var body: some View {
         
         VStack {
@@ -24,7 +24,7 @@ struct MessIssueView: View {
             Divider()
                 .padding(.bottom)
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 20) {
                 
                 VStack(alignment: .leading) {
                     Text("Name")
@@ -72,6 +72,7 @@ struct MessIssueView: View {
                         
                     }
                     .padding()
+                    .autocapitalization(.none)
                     .frame(width: UIScreen.main.bounds.width - 90, height: 50)
                     .overlay {
                         RoundedRectangle(cornerRadius: 10)
@@ -82,11 +83,11 @@ struct MessIssueView: View {
                 
             VStack(alignment: .leading) {
                 
-                Text("Mess Hostel Block")
+                Text("Room Number")
                     .padding(.horizontal, 2)
                     
-                TextField(text: $messType){
-                    Text("MH-B, MH-G, etc.")
+                TextField(text: $roomNo){
+                    Text("For ex: - 241, 512, etc.")
                         
                 }
                 .padding()
@@ -97,37 +98,34 @@ struct MessIssueView: View {
                 }
             }
                 
-                VStack(alignment: .leading) {
-                    Text("Issue Description")
-                        .padding(.horizontal, 2)
-                    
-                    TextField(text: $description){
-                        Text("Description")
-                        
-                    }
-                    .padding()
-                    .frame(width: UIScreen.main.bounds.width - 90, height: 50)
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color(.systemGray4))
-                    }
-                }
-                
             HStack {
-                Text("Mess Type")
+                Text("Men's Hostel Block")
                     .padding(.horizontal, 2)
                 
                 Spacer()
                 
-                Picker("Select your Mess Typek", selection: $messBlock) {
-                    ForEach(messblocklist, id: \.self) {
+                Picker("Select your Block", selection: $selectedBlock) {
+                    ForEach(block, id: \.self) {
                         Text($0)
                     }
                 }
                 .pickerStyle(.menu)
                 
             }
-                .padding()
+            .padding()
+            .frame(width: UIScreen.main.bounds.width - 90, height: 50)
+                
+                VStack(alignment: .leading, spacing: 15) {
+                    Text("Date and Time of Cleaning")
+                        .padding(.horizontal, 2)
+                    
+//                    Spacer()
+                    
+                    DatePicker("", selection: $datePicked, in: Date()...)
+                        .labelsHidden()
+                    
+                }
+                .padding(.trailing, 45)
                 .frame(width: UIScreen.main.bounds.width - 90, height: 50)
             
             }
@@ -135,17 +133,20 @@ struct MessIssueView: View {
             Spacer()
             
             Button("Submit") {
-                
+                otpView.toggle()
             }
             
             Spacer()
             
         }
-        .navigationTitle("Report Mess Issue")
+        .navigationTitle("Room Cleaning")
+        .fullScreenCover(isPresented: $otpView, content: {
+            OTPEnterView(numberOfFields: 6)
+        })
         
     }
 }
 
 #Preview {
-    MessIssueView()
+    RoomCleaningView()
 }

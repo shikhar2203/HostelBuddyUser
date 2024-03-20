@@ -15,6 +15,8 @@
 		E310A15A2BA9C7F900BF87E9 /* HarassmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310A1592BA9C7F900BF87E9 /* HarassmentView.swift */; };
 		E310A15C2BA9C81700BF87E9 /* RoomCleaningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310A15B2BA9C81700BF87E9 /* RoomCleaningView.swift */; };
 		E310A15E2BAA047E00BF87E9 /* MessIssueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310A15D2BAA047E00BF87E9 /* MessIssueView.swift */; };
+		E310A1602BAAA29900BF87E9 /* OTPEnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310A15F2BAAA29900BF87E9 /* OTPEnterView.swift */; };
+		E310A16F2BAABAE400BF87E9 /* RoomCleaningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310A16E2BAABAE400BF87E9 /* RoomCleaningViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		E310A1592BA9C7F900BF87E9 /* HarassmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarassmentView.swift; sourceTree = "<group>"; };
 		E310A15B2BA9C81700BF87E9 /* RoomCleaningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCleaningView.swift; sourceTree = "<group>"; };
 		E310A15D2BAA047E00BF87E9 /* MessIssueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessIssueView.swift; sourceTree = "<group>"; };
+		E310A15F2BAAA29900BF87E9 /* OTPEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPEnterView.swift; sourceTree = "<group>"; };
+		E310A16E2BAABAE400BF87E9 /* RoomCleaningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCleaningViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,14 +63,15 @@
 		E310A1482BA9C36A00BF87E9 /* HostelBuddyUser */ = {
 			isa = PBXGroup;
 			children = (
+				E310A1652BAAB8A200BF87E9 /* OTP */,
+				E310A1642BAAB89800BF87E9 /* Harrasment */,
+				E310A1632BAAB89000BF87E9 /* Complain */,
+				E310A1622BAAB88A00BF87E9 /* Mess Issue */,
+				E310A1612BAAB88000BF87E9 /* Room Cleaning */,
 				E310A1492BA9C36A00BF87E9 /* HostelBuddyUserApp.swift */,
 				E310A14B2BA9C36A00BF87E9 /* ContentView.swift */,
 				E310A14D2BA9C36C00BF87E9 /* Assets.xcassets */,
 				E310A14F2BA9C36C00BF87E9 /* Preview Content */,
-				E310A1572BA9C7D500BF87E9 /* ComplainView.swift */,
-				E310A1592BA9C7F900BF87E9 /* HarassmentView.swift */,
-				E310A15B2BA9C81700BF87E9 /* RoomCleaningView.swift */,
-				E310A15D2BAA047E00BF87E9 /* MessIssueView.swift */,
 			);
 			path = HostelBuddyUser;
 			sourceTree = "<group>";
@@ -77,6 +82,111 @@
 				E310A1502BA9C36C00BF87E9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E310A1612BAAB88000BF87E9 /* Room Cleaning */ = {
+			isa = PBXGroup;
+			children = (
+				E310A16D2BAABA4000BF87E9 /* ViewModel */,
+				E310A16C2BAABA3D00BF87E9 /* View */,
+			);
+			path = "Room Cleaning";
+			sourceTree = "<group>";
+		};
+		E310A1622BAAB88A00BF87E9 /* Mess Issue */ = {
+			isa = PBXGroup;
+			children = (
+				E310A16B2BAAB94C00BF87E9 /* ViewModel */,
+				E310A16A2BAAB94600BF87E9 /* View */,
+			);
+			path = "Mess Issue";
+			sourceTree = "<group>";
+		};
+		E310A1632BAAB89000BF87E9 /* Complain */ = {
+			isa = PBXGroup;
+			children = (
+				E310A1692BAAB94000BF87E9 /* ViewModel */,
+				E310A1682BAAB93C00BF87E9 /* View */,
+			);
+			path = Complain;
+			sourceTree = "<group>";
+		};
+		E310A1642BAAB89800BF87E9 /* Harrasment */ = {
+			isa = PBXGroup;
+			children = (
+				E310A1672BAAB92900BF87E9 /* ViewModel */,
+				E310A1662BAAB91C00BF87E9 /* View */,
+			);
+			path = Harrasment;
+			sourceTree = "<group>";
+		};
+		E310A1652BAAB8A200BF87E9 /* OTP */ = {
+			isa = PBXGroup;
+			children = (
+				E310A15F2BAAA29900BF87E9 /* OTPEnterView.swift */,
+			);
+			path = OTP;
+			sourceTree = "<group>";
+		};
+		E310A1662BAAB91C00BF87E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E310A1592BA9C7F900BF87E9 /* HarassmentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E310A1672BAAB92900BF87E9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E310A1682BAAB93C00BF87E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E310A1572BA9C7D500BF87E9 /* ComplainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E310A1692BAAB94000BF87E9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E310A16A2BAAB94600BF87E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E310A15D2BAA047E00BF87E9 /* MessIssueView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E310A16B2BAAB94C00BF87E9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E310A16C2BAABA3D00BF87E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E310A15B2BA9C81700BF87E9 /* RoomCleaningView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E310A16D2BAABA4000BF87E9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E310A16E2BAABAE400BF87E9 /* RoomCleaningViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +259,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E310A16F2BAABAE400BF87E9 /* RoomCleaningViewModel.swift in Sources */,
+				E310A1602BAAA29900BF87E9 /* OTPEnterView.swift in Sources */,
 				E310A15A2BA9C7F900BF87E9 /* HarassmentView.swift in Sources */,
 				E310A15C2BA9C81700BF87E9 /* RoomCleaningView.swift in Sources */,
 				E310A15E2BAA047E00BF87E9 /* MessIssueView.swift in Sources */,
