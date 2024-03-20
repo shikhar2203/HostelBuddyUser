@@ -9,14 +9,16 @@ import SwiftUI
 
 struct OTPEnterView: View {
     
+    var complaintbody: ComplaintUserModel
     let numberOfFields: Int
     @State var enterValue: [String]
     @FocusState private var fieldFocus: Int?
     @State var oldValue = ""
     
-    init(numberOfFields: Int) {
+    init(numberOfFields: Int, complaintbody: ComplaintUserModel) {
         self.numberOfFields = numberOfFields
         self.enterValue = Array(repeating: "", count: numberOfFields)
+        self.complaintbody = complaintbody
     }
     
     var body: some View {
@@ -71,7 +73,10 @@ struct OTPEnterView: View {
             Spacer()
             
             Button("Verify") {
-                print(enterValue)
+                let otpStr = enterValue.map { String($0) }.joined(separator: "")
+                OTPverifyComplaintViewModel.verifyOTP(complaintbody: complaintbody, otpString: otpStr)
+                print(otpStr)
+                
             }
             .frame(width: UIScreen.main.bounds.width-90, height: 50)
             .background(Color.black)
@@ -105,6 +110,6 @@ struct OTPEnterBoxStyle: ViewModifier {
     }
 }
 
-#Preview {
-    OTPEnterView(numberOfFields: 6)
-}
+//#Preview {
+//    OTPEnterView(numberOfFields: 6)
+//}

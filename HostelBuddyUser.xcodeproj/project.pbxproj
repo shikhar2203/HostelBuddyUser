@@ -16,7 +16,10 @@
 		E310A15C2BA9C81700BF87E9 /* RoomCleaningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310A15B2BA9C81700BF87E9 /* RoomCleaningView.swift */; };
 		E310A15E2BAA047E00BF87E9 /* MessIssueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310A15D2BAA047E00BF87E9 /* MessIssueView.swift */; };
 		E310A1602BAAA29900BF87E9 /* OTPEnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310A15F2BAAA29900BF87E9 /* OTPEnterView.swift */; };
-		E310A16F2BAABAE400BF87E9 /* RoomCleaningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310A16E2BAABAE400BF87E9 /* RoomCleaningViewModel.swift */; };
+		E310A1722BAAC45100BF87E9 /* RoomCleaningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310A1712BAAC45100BF87E9 /* RoomCleaningViewModel.swift */; };
+		E310A1742BAAC4B200BF87E9 /* ComplaintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310A1732BAAC4B200BF87E9 /* ComplaintViewModel.swift */; };
+		E310A1762BAAC50400BF87E9 /* ComplaintUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310A1752BAAC50400BF87E9 /* ComplaintUserModel.swift */; };
+		E310A17A2BAAF69C00BF87E9 /* OTPverifyComplaintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310A1792BAAF69C00BF87E9 /* OTPverifyComplaintViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +33,10 @@
 		E310A15B2BA9C81700BF87E9 /* RoomCleaningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCleaningView.swift; sourceTree = "<group>"; };
 		E310A15D2BAA047E00BF87E9 /* MessIssueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessIssueView.swift; sourceTree = "<group>"; };
 		E310A15F2BAAA29900BF87E9 /* OTPEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPEnterView.swift; sourceTree = "<group>"; };
-		E310A16E2BAABAE400BF87E9 /* RoomCleaningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCleaningViewModel.swift; sourceTree = "<group>"; };
+		E310A1712BAAC45100BF87E9 /* RoomCleaningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCleaningViewModel.swift; sourceTree = "<group>"; };
+		E310A1732BAAC4B200BF87E9 /* ComplaintViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintViewModel.swift; sourceTree = "<group>"; };
+		E310A1752BAAC50400BF87E9 /* ComplaintUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintUserModel.swift; sourceTree = "<group>"; };
+		E310A1792BAAF69C00BF87E9 /* OTPverifyComplaintViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPverifyComplaintViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +69,10 @@
 		E310A1482BA9C36A00BF87E9 /* HostelBuddyUser */ = {
 			isa = PBXGroup;
 			children = (
+				E310A1702BAABC4A00BF87E9 /* APIManager */,
 				E310A1652BAAB8A200BF87E9 /* OTP */,
 				E310A1642BAAB89800BF87E9 /* Harrasment */,
-				E310A1632BAAB89000BF87E9 /* Complain */,
+				E310A1632BAAB89000BF87E9 /* Complaint */,
 				E310A1622BAAB88A00BF87E9 /* Mess Issue */,
 				E310A1612BAAB88000BF87E9 /* Room Cleaning */,
 				E310A1492BA9C36A00BF87E9 /* HostelBuddyUserApp.swift */,
@@ -102,13 +109,14 @@
 			path = "Mess Issue";
 			sourceTree = "<group>";
 		};
-		E310A1632BAAB89000BF87E9 /* Complain */ = {
+		E310A1632BAAB89000BF87E9 /* Complaint */ = {
 			isa = PBXGroup;
 			children = (
 				E310A1692BAAB94000BF87E9 /* ViewModel */,
 				E310A1682BAAB93C00BF87E9 /* View */,
+				E310A1752BAAC50400BF87E9 /* ComplaintUserModel.swift */,
 			);
-			path = Complain;
+			path = Complaint;
 			sourceTree = "<group>";
 		};
 		E310A1642BAAB89800BF87E9 /* Harrasment */ = {
@@ -123,7 +131,8 @@
 		E310A1652BAAB8A200BF87E9 /* OTP */ = {
 			isa = PBXGroup;
 			children = (
-				E310A15F2BAAA29900BF87E9 /* OTPEnterView.swift */,
+				E310A1782BAAECB800BF87E9 /* ViewModel */,
+				E310A1772BAAECAC00BF87E9 /* View */,
 			);
 			path = OTP;
 			sourceTree = "<group>";
@@ -154,6 +163,7 @@
 		E310A1692BAAB94000BF87E9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E310A1732BAAC4B200BF87E9 /* ComplaintViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -184,7 +194,30 @@
 		E310A16D2BAABA4000BF87E9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E310A16E2BAABAE400BF87E9 /* RoomCleaningViewModel.swift */,
+				E310A1712BAAC45100BF87E9 /* RoomCleaningViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E310A1702BAABC4A00BF87E9 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
+		E310A1772BAAECAC00BF87E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E310A15F2BAAA29900BF87E9 /* OTPEnterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E310A1782BAAECB800BF87E9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E310A1792BAAF69C00BF87E9 /* OTPverifyComplaintViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -259,9 +292,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E310A16F2BAABAE400BF87E9 /* RoomCleaningViewModel.swift in Sources */,
+				E310A1722BAAC45100BF87E9 /* RoomCleaningViewModel.swift in Sources */,
 				E310A1602BAAA29900BF87E9 /* OTPEnterView.swift in Sources */,
+				E310A17A2BAAF69C00BF87E9 /* OTPverifyComplaintViewModel.swift in Sources */,
+				E310A1762BAAC50400BF87E9 /* ComplaintUserModel.swift in Sources */,
 				E310A15A2BA9C7F900BF87E9 /* HarassmentView.swift in Sources */,
+				E310A1742BAAC4B200BF87E9 /* ComplaintViewModel.swift in Sources */,
 				E310A15C2BA9C81700BF87E9 /* RoomCleaningView.swift in Sources */,
 				E310A15E2BAA047E00BF87E9 /* MessIssueView.swift in Sources */,
 				E310A1582BA9C7D500BF87E9 /* ComplainView.swift in Sources */,

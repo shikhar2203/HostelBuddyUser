@@ -155,6 +155,8 @@ struct ComplainView: View {
             Spacer()
             
             Button("Submit") {
+                ComplaintViewModel.getOTP(complaintbody: ComplaintUserModel(name: self.name, regNo: self.regNo, roomNo: self.roomNo, mailVIT: self.mailVIT, selectedBlock: self.selectedBlock, issueType: self.issueType, description: self.description))
+                
                 otpView.toggle()
             }
             
@@ -163,7 +165,7 @@ struct ComplainView: View {
         }
         .navigationTitle("Submit a Complain")
         .fullScreenCover(isPresented: $otpView, content: {
-            OTPEnterView(numberOfFields: 6)
+            OTPEnterView(numberOfFields: 6, complaintbody: ComplaintUserModel(name: self.name, regNo: self.regNo, roomNo: self.roomNo, mailVIT: self.mailVIT, selectedBlock: self.selectedBlock, issueType: self.issueType, description: self.description))
         })
         
     }

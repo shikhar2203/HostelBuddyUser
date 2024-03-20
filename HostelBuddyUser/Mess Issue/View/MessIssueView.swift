@@ -144,9 +144,9 @@ struct MessIssueView: View {
             
         }
         .navigationTitle("Report Mess Issue")
-        .fullScreenCover(isPresented: $otpView, content: {
-            OTPEnterView(numberOfFields: 6)
-        })
+//        .fullScreenCover(isPresented: $otpView, content: {
+//            OTPEnterView(numberOfFields: 6)
+//        })
         
     }
 }

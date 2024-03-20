@@ -8,6 +8,6 @@
 import Foundation
 import SwiftUI
 
-struct RoomCleaningViewModel{
-    
+struct RoomCleaningViewModel {
+    static let roomCleaningRequest =  "https://hostelbuddybackend-hgf5.onrender.com/api/postComplaint"
 }

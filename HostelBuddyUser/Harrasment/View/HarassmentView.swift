@@ -107,9 +107,9 @@ struct HarassmentView: View {
             
         }
         .navigationTitle("Report Harassment")
-        .fullScreenCover(isPresented: $otpView, content: {
-            OTPEnterView(numberOfFields: 6)
-        })
+//        .fullScreenCover(isPresented: $otpView, content: {
+//            OTPEnterView(numberOfFields: 6)
+//        })
         
     }
 }
