@@ -17,6 +17,7 @@ struct ComplainView: View {
     @State private var issueType = "Washroom"
     @State private var description = ""
     @State private var otpView = false
+    @State private var showAlert = false
 
     let block = ["MH-A", "MH-B", "MH-C", "MH-D", "MH-E", "MH-F", "MH-G", "MH-H", "MH-J", "MH-K", "MH-L", "MH-M", "MH-N", "MH-P", "MH-Q", "MH-R", "MH-S", "MH-T"]
     let issue = ["Washroom", "Room", "other"]
@@ -155,9 +156,18 @@ struct ComplainView: View {
             Spacer()
             
             Button("Submit") {
-                ComplaintViewModel.getComplaintOTP(complaintbody: ComplaintUserModel(name: self.name, regNo: self.regNo, roomNo: self.roomNo, mailVIT: self.mailVIT, selectedBlock: self.selectedBlock, issueType: self.issueType, description: self.description))
                 
-                otpView.toggle()
+                let emailComponents = mailVIT.split(separator: "@").map(String.init)
+                
+                if emailComponents.isEmpty ||  emailComponents[1] != "vitstudent.ac.in" {
+                    showAlert.toggle()
+                }
+                else{
+                    
+                    ComplaintViewModel.getComplaintOTP(complaintbody: ComplaintUserModel(name: self.name, regNo: self.regNo, roomNo: self.roomNo, mailVIT: self.mailVIT, selectedBlock: self.selectedBlock, issueType: self.issueType, description: self.description))
+                    
+                    otpView.toggle()
+                }
             }
             
             Spacer()
@@ -167,6 +177,14 @@ struct ComplainView: View {
         .fullScreenCover(isPresented: $otpView, content: {
             OTPComplaintView(numberOfFields: 6, complaintbody: ComplaintUserModel(name: self.name, regNo: self.regNo, roomNo: self.roomNo, mailVIT: self.mailVIT, selectedBlock: self.selectedBlock, issueType: self.issueType, description: self.description))
         })
+        .alert("Invalid Email ID", isPresented: $showAlert) {
+            Text("OK")
+                .bold()
+                .font(Font(.init(.system, size: 16)))
+        } message: {
+            Text("The entered email is not a valid VIT email address.")
+        }
+
         
     }
 }

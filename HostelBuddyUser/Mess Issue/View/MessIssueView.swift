@@ -15,6 +15,7 @@ struct MessIssueView: View {
     @State private var messBlock = ""
     @State private var description = ""
     @State private var otpView = false
+    @State private var showAlert = false
 
     let messblocklist = ["Veg Mess", "Non-Veg Mess", "Special Mess"]
     
@@ -137,9 +138,17 @@ struct MessIssueView: View {
             Spacer()
             
             Button("Submit") {
-                print("\(name)\n\(regNo)\n\(messType)\n\(mailVIT)\n\(messBlock)\n\(description)")
-                MessIssueViewModel.getMessIssueOTP(complaintbody: MessIssueUserModel(name: name, regNo: regNo, mailVIT: mailVIT, messBlock: messBlock, description: description, messType: messType))
-                otpView.toggle()
+                
+                let emailComponents = mailVIT.split(separator: "@").map(String.init)
+                
+                if emailComponents.isEmpty ||  emailComponents[1] != "vitstudent.ac.in" {
+                    showAlert.toggle()
+                }
+                else{
+                    
+                    MessIssueViewModel.getMessIssueOTP(complaintbody: MessIssueUserModel(name: name, regNo: regNo, mailVIT: mailVIT, messBlock: messBlock, description: description, messType: messType))
+                    otpView.toggle()
+                }
             }
             
             Spacer()
@@ -149,6 +158,13 @@ struct MessIssueView: View {
         .fullScreenCover(isPresented: $otpView, content: {
             OTPMessIssueView(numberOfFields: 6, complaintbody: MessIssueUserModel(name: name, regNo: regNo, mailVIT: mailVIT, messBlock: messBlock, description: description, messType: messType))
         })
+        .alert("Invalid Email ID", isPresented: $showAlert) {
+            Text("OK")
+                .bold()
+                .font(Font(.init(.system, size: 16)))
+        } message: {
+            Text("The entered email is not a valid VIT email address.")
+        }
         
     }
 }

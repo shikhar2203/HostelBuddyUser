@@ -15,6 +15,7 @@ struct HarassmentView: View {
     @State private var selectedBlock = "MH-A"
     @State private var description = ""
     @State private var otpView = false
+    @State private var showAlert = false
 
     let block = ["MH-A", "MH-B", "MH-C", "MH-D", "MH-E", "MH-F", "MH-G", "MH-H", "MH-J", "MH-K", "MH-L", "MH-M", "MH-N", "MH-P", "MH-Q", "MH-R", "MH-S", "MH-T"]
     var body: some View {
@@ -136,8 +137,17 @@ struct HarassmentView: View {
             Spacer()
             
             Button("Submit") {
-                HarassmentViewModel.getHarassmentOTP(complaintbody: HarassmentUserModel(name: name, regNo: regNo, mailVIT: mailVIT, roomNo: roomNo, selectedBlock: selectedBlock, description: description))
-                otpView.toggle()
+                
+                let emailComponents = mailVIT.split(separator: "@").map(String.init)
+                
+                if emailComponents.isEmpty ||  emailComponents[1] != "vitstudent.ac.in" {
+                    showAlert.toggle()
+                }
+                else{
+                    
+                    HarassmentViewModel.getHarassmentOTP(complaintbody: HarassmentUserModel(name: name, regNo: regNo, mailVIT: mailVIT, roomNo: roomNo, selectedBlock: selectedBlock, description: description))
+                    otpView.toggle()
+                }
             }
             
             Spacer()
@@ -147,6 +157,13 @@ struct HarassmentView: View {
         .fullScreenCover(isPresented: $otpView, content: {
             OTPHarassmentView(numberOfFields: 6, complaintbody: HarassmentUserModel(name: name, regNo: regNo, mailVIT: mailVIT, roomNo: roomNo, selectedBlock: selectedBlock, description: description))
         })
+        .alert("Invalid Email ID", isPresented: $showAlert) {
+            Text("OK")
+                .bold()
+                .font(Font(.init(.system, size: 16)))
+        } message: {
+            Text("The entered email is not a valid VIT email address.")
+        }
         
     }
 }

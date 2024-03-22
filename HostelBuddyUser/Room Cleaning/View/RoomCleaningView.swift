@@ -15,6 +15,7 @@ struct RoomCleaningView: View {
     @State private var selectedBlock = "MH-A"
     @State private var datePicked = Date()
     @State private var otpView = false
+    @State private var showAlert = false
 
     let block = ["MH-A", "MH-B", "MH-C", "MH-D", "MH-E", "MH-F", "MH-G", "MH-H", "MH-J", "MH-K", "MH-L", "MH-M", "MH-N", "MH-P", "MH-Q", "MH-R", "MH-S", "MH-T"]
     var body: some View {
@@ -119,8 +120,6 @@ struct RoomCleaningView: View {
                     Text("Date and Time of Cleaning")
                         .padding(.horizontal, 2)
                     
-//                    Spacer()
-                    
                     DatePicker("", selection: $datePicked, in: Date()...)
                         .labelsHidden()
                     
@@ -133,12 +132,20 @@ struct RoomCleaningView: View {
             Spacer()
             
             Button("Submit") {
-//                otpView.toggle()
+                
                 let date = datePicked.formatted(date: .numeric, time: .shortened).split(separator: ", ").map(String.init)
                 
-                RoomCleaningViewModel.getRoomCleaningOTP(complaintbody: RoomCleaningUserModel(name: name, regNo: regNo, roomNo: roomNo, mailVIT: mailVIT, selectedBlock: selectedBlock, date: date[0], time: date[1]))
+                let emailComponents = mailVIT.split(separator: "@").map(String.init)
                 
-                otpView.toggle()
+                if emailComponents.isEmpty ||  emailComponents[1] != "vitstudent.ac.in" {
+                    showAlert.toggle()
+                }
+                else{
+                    
+                    RoomCleaningViewModel.getRoomCleaningOTP(complaintbody: RoomCleaningUserModel(name: name, regNo: regNo, roomNo: roomNo, mailVIT: mailVIT, selectedBlock: selectedBlock, date: date[0], time: date[1]))
+                    
+                    otpView.toggle()
+                }
             }
             
             Spacer()
@@ -149,6 +156,13 @@ struct RoomCleaningView: View {
             let date2 = datePicked.formatted(date: .numeric, time: .shortened).split(separator: ", ").map(String.init)
             OTPRoomCleaningView(numberOfFields: 6, complaintbody: RoomCleaningUserModel(name: name, regNo: regNo, roomNo: roomNo, mailVIT: mailVIT, selectedBlock: selectedBlock, date: date2[0], time: date2[1]))
         })
+        .alert("Invalid Email ID", isPresented: $showAlert) {
+            Text("OK")
+                .bold()
+                .font(Font(.init(.system, size: 16)))
+        } message: {
+            Text("The entered email is not a valid VIT email address.")
+        }
         
     }
 }
